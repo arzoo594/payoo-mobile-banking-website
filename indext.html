@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!-- script cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-[#f4f5f7] h-[100vh] flex flex-col justify-center items-center">
+    <div class="h-[120px] w-[250px]  bg-[url(./assets/bg.png)] bg-cover flex justify-center items-center">
+     <img src="./assets/Group.png" alt="">
+    </div>
+    <!-- input login -->
+ <form class="bg-white p-10 rounded-3xl">
+  <div>
+    <label class="font-semibold " for="">Mobile Number</label>
+    <br>
+  <input id="input-number" class="bg-[#f4f5f7] border-none mb-3 p-2 mt-5 rounded-3xl" placeholder="Enter Your Number" type="text">
+  </div>
+  <div>
+    <label class="font-semibold" for="">Enter 4 Digit Pin</label>
+    <br>
+    <input id="input-pass" class="bg-[#f4f5f7] border-none mb-3 mt-5  p-2 rounded-3xl" placeholder="Enter 4 Digit Pin" type="password" name="" id="">
+    <br>
+    <button type="button" id="btn-login" class="w-[100%] bg-[#0874F2] rounded-3xl p-2 text-white font-semibold">Login</button>
+  </div>
+ </form>
+ <!-- js create -->
+ <script>
+  document.getElementById('btn-login').addEventListener('click',function(event){
+    
+   const mobileNumber = '+1706097788';
+   const loginPass = '1234';
+   const mobileNumberValue = document.getElementById('input-number').value
+   const loginPassvalue = document.getElementById('input-pass').value
+   if(mobileNumberValue===mobileNumber && loginPassvalue===loginPass){
+    console.log('go next page')
+   }
+   else{console.log('Invalid credentials')}
+  })
+ </script>
+</body>
+</html>
