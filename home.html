@@ -90,7 +90,7 @@
       <input id="cash-out-account-number" class="w-full  bg-[#f4f5f7]  rounded-3xl p-2 border-1 border-gray-400 my-3" placeholder="Enter 11 Digit Account Number " type="number">
  <label class="font-semibold  " for="">Amount</label><br>
       <input id="cash-out-amount" class="w-full  bg-[#f4f5f7]  rounded-3xl p-2 border-1 border-gray-400 my-3 " placeholder="Enter Amount To Withdrow " type="number">
- <label class="font-semibold  " >Pin Number</label><br>
+ <label id="pin-number" class="font-semibold  " >Pin Number</label><br>
       <input id="cash-out-pin-number"  class="w-full  bg-[#f4f5f7]  rounded-3xl p-2 border-1 border-gray-400 my-3" placeholder="Enter 4 Digit Pin " type="password">
       <button  type="button" id="btn-withdraw-money" class="w-[100%] bg-[#0874F2] rounded-3xl p-2 text-white font-semibold">WithDraw Money</button>
         </div>
@@ -137,11 +137,28 @@
 
     })
     // cash-out-js
-    document.getElementById("btn-withdraw-money").addEventListener('click',function(){
-     const cashOutAccountNumber =parseInt(document.getElementById('cash-out-account-number')).value
-     console.log(cashOutAccountNumber )
+    document.getElementById('btn-withdraw-money').addEventListener('click',function(){
+        const validPin = 1234;
+        const pinNumber = document.getElementById('pin-number').value
+        const accountNumber =document.getElementById('cash-out-account-number').value
+        const cashOutAmount =Number(document.getElementById('cash-out-amount').value);
+        const reserveDollar = Number(document.getElementById('reserve-dollar').innerText);
+        if(accountNumber.length >11){
+            (alert('Invalid Number'))
+            return
+        }
+        else if (accountNumber.length < 11){
+            alert('Invalid Number')
+            return
+        }
+        if(pinNumber !=validPin){
+         alert('Invalid pin')
+         return
+        }
+        
+        const cashOutTotalValue =reserveDollar - cashOutAmount;
+        document.getElementById('reserve-dollar').innerText = cashOutTotalValue;
     })
-
   </script>
 </body>
 </html>
